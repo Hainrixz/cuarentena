@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" role="img" aria-labelledby="t d">
+  <title id="t">Cuarentena</title>
+  <desc id="d">Claude revisa un ZIP, una carpeta o un repo antes de que toque tu compu. Un ZIP entra a una cámara de cuarentena, se escanea, aparecen los hallazgos y sale el veredicto: no instalar.</desc>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#E9E4D6" stroke-opacity=".045"/>
+    </pattern>
+    <pattern id="hazard" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="14" height="28" fill="#F5B83D"/>
+      <rect x="14" width="14" height="28" fill="#15140F"/>
+    </pattern>
+    <radialGradient id="glowA" cx="78%" cy="45%" r="45%">
+      <stop offset="0" stop-color="#F5B83D" stop-opacity=".13"/>
+      <stop offset="1" stop-color="#F5B83D" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="10%" cy="100%" r="55%">
+      <stop offset="0" stop-color="#3DDC97" stop-opacity=".07"/>
+      <stop offset="1" stop-color="#3DDC97" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="scan" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F5B83D" stop-opacity="0"/>
+      <stop offset=".85" stop-color="#F5B83D" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#F5B83D" stop-opacity=".9"/>
+    </linearGradient>
+    <clipPath id="round"><rect width="1200" height="600" rx="28"/></clipPath>
+    <clipPath id="camara"><rect x="740" y="118" width="400" height="404" rx="18"/></clipPath>
+  </defs>
+
+  <style>
+    .sans{font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+    .mono{font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace}
+
+    /* entrada: ease-out fuerte, una sola vez */
+    .in{animation:enter .8s cubic-bezier(.23,1,.32,1) both}
+    @keyframes enter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+    .d1{animation-delay:.1s}.d2{animation-delay:.22s}.d3{animation-delay:.34s}.d4{animation-delay:.46s}.d5{animation-delay:.6s}
+
+    /* el ZIP cae dentro de la cámara y la puerta se sella */
+    .zip{animation:drop 1s cubic-bezier(.34,1.3,.64,1) .7s both}
+    @keyframes drop{from{opacity:0;transform:translateY(-90px)}to{opacity:1;transform:none}}
+    .sello{stroke-dasharray:10 8;animation:march 1.2s linear infinite}
+    @keyframes march{to{stroke-dashoffset:-36}}
+    .lock{animation:lock .5s cubic-bezier(.23,1,.32,1) 1.6s both}
+    @keyframes lock{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+
+    /* escáner que barre la cámara sin parar */
+    .barrido{animation:sweep 3.2s cubic-bezier(.65,0,.35,1) 1.7s infinite}
+    @keyframes sweep{0%{transform:translateY(0);opacity:0}8%{opacity:1}50%{transform:translateY(300px);opacity:1}58%,100%{transform:translateY(300px);opacity:0}}
+
+    /* hallazgos, uno por uno */
+    .h{animation:hit .5s cubic-bezier(.23,1,.32,1) both}
+    @keyframes hit{from{opacity:0;transform:translateX(-14px)}to{opacity:1;transform:none}}
+    .h1{animation-delay:2.2s}.h2{animation-delay:2.7s}.h3{animation-delay:3.2s}.h4{animation-delay:3.7s}
+    .pulso{animation:pulse 1.6s ease-in-out infinite}
+    @keyframes pulse{50%{opacity:.35}}
+
+    /* el sello cae al final */
+    .stamp{transform-origin:940px 470px;animation:stamp .45s cubic-bezier(.34,1.56,.64,1) 4.3s both}
+    @keyframes stamp{from{opacity:0;transform:rotate(-8deg) scale(1.9)}to{opacity:1;transform:rotate(-8deg) scale(1)}}
+
+    .caret{animation:blink 1s steps(1) infinite}
+    @keyframes blink{50%{opacity:0}}
+
+    @media (prefers-reduced-motion:reduce){*{animation:none!important}.barrido{opacity:0}.stamp{transform:rotate(-8deg)}}
+  </style>
+
+  <g clip-path="url(#round)">
+    <rect width="1200" height="600" fill="#0F0F0C"/>
+    <rect width="1200" height="600" fill="url(#grid)"/>
+    <rect width="1200" height="600" fill="url(#glowA)"/>
+    <rect width="1200" height="600" fill="url(#glowB)"/>
+    <rect width="1200" height="10" fill="url(#hazard)"/>
+    <rect y="590" width="1200" height="10" fill="url(#hazard)" opacity=".55"/>
+
+    <!-- marcas de corte, como en una hoja de expediente -->
+    <g stroke="#E9E4D6" stroke-opacity=".25" stroke-width="1.5" fill="none">
+      <path d="M40 52v-14h14M1160 52v-14h-14M40 548v14h14M1160 548v14h-14"/>
+    </g>
+
+    <!-- izquierda: titular -->
+    <g class="in d1">
+      <rect x="70" y="92" width="10" height="10" fill="#F5B83D"/>
+      <text class="mono" x="92" y="102" fill="#9C978A" font-size="15" letter-spacing="3">PLUGIN DE CLAUDE CODE · CERO DEPENDENCIAS</text>
+    </g>
+    <text class="sans in d2" x="64" y="214" fill="#F1ECDF" font-size="104" font-weight="800" letter-spacing="-4">Cuarentena</text>
+    <g class="sans in d3" font-size="27" fill="#BDB8AA">
+      <text x="70" y="270">Claude revisa un ZIP, una carpeta o un repo</text>
+      <text x="70" y="306">antes de que <tspan fill="#F5B83D" font-weight="700">toque tu compu</tspan>.</text>
+    </g>
+
+    <!-- tres preguntas -->
+    <g class="in d4 mono" font-size="17">
+      <g transform="translate(70 352)">
+        <text fill="#6E6A5F">01</text><text x="38" fill="#E3DED0">¿Qué cambiaría en tu compu?</text>
+      </g>
+      <g transform="translate(70 384)">
+        <text fill="#6E6A5F">02</text><text x="38" fill="#E3DED0">¿Qué es sospechoso, y en qué línea?</text>
+      </g>
+      <g transform="translate(70 416)">
+        <text fill="#6E6A5F">03</text><text x="38" fill="#E3DED0">¿Hace lo que promete?</text>
+      </g>
+    </g>
+
+    <!-- comando -->
+    <g class="in d5">
+      <rect x="70" y="462" width="560" height="56" rx="12" fill="#1A1A15" stroke="#E9E4D6" stroke-opacity=".12"/>
+      <text class="mono" x="94" y="497" font-size="19" fill="#6E6A5F">›</text>
+      <text class="mono" x="116" y="497" font-size="19" fill="#F1ECDF">/cuarentena:revisar <tspan fill="#9C978A">~/Downloads/skill.zip</tspan></text>
+      <rect class="caret" x="590" y="481" width="10" height="22" fill="#F5B83D"/>
+    </g>
+
+    <!-- derecha: la cámara -->
+    <g class="in d2">
+      <rect x="740" y="118" width="400" height="404" rx="18" fill="#14140F"/>
+      <rect class="sello" x="740" y="118" width="400" height="404" rx="18" fill="none" stroke="#F5B83D" stroke-opacity=".75" stroke-width="2"/>
+      <rect x="764" y="100" width="160" height="30" rx="6" fill="#0F0F0C"/>
+      <text class="mono" x="776" y="120" fill="#F5B83D" font-size="14" letter-spacing="1.5">~/cuarentena/</text>
+    </g>
+
+    <g clip-path="url(#camara)">
+      <!-- el ZIP -->
+      <g class="zip">
+        <rect x="772" y="150" width="336" height="66" rx="12" fill="#201F18" stroke="#E9E4D6" stroke-opacity=".14"/>
+        <rect x="790" y="164" width="30" height="38" rx="5" fill="#2B2A21" stroke="#F5B83D" stroke-opacity=".7"/>
+        <path d="M805 164v6m0 4v6m0 4v6" stroke="#F5B83D" stroke-width="3" stroke-linecap="round"/>
+        <text class="mono" x="836" y="182" fill="#F1ECDF" font-size="16">notas-bonitas.zip</text>
+        <text class="mono" x="836" y="203" fill="#7D796D" font-size="13">promete: formatea tus notas</text>
+        <g class="lock" style="transform-origin:1082px 183px">
+          <rect x="1070" y="180" width="24" height="18" rx="4" fill="#F5B83D"/>
+          <path d="M1075 180v-5a7 7 0 0 1 14 0v5" fill="none" stroke="#F5B83D" stroke-width="3"/>
+        </g>
+      </g>
+
+      <!-- hallazgos -->
+      <g class="mono" font-size="14">
+        <g transform="translate(772 252)"><g class="h h1">
+          <circle class="pulso" cx="8" cy="-5" r="5" fill="#FF5A4E"/>
+          <text x="24" fill="#E3DED0">.claude/settings.json</text>
+          <text x="24" y="20" fill="#FF8A80">Bash(*) · bypassPermissions</text></g></g>
+        <g transform="translate(772 304)"><g class="h h2">
+          <circle class="pulso" cx="8" cy="-5" r="5" fill="#FF5A4E"/>
+          <text x="24" fill="#E3DED0">instalar.sh:2</text>
+          <text x="24" y="20" fill="#FF8A80">lee ~/.ssh y lo manda fuera</text></g></g>
+        <g transform="translate(772 356)"><g class="h h3">
+          <circle class="pulso" cx="8" cy="-5" r="5" fill="#FF5A4E"/>
+          <text x="24" fill="#E3DED0">instalar.sh:3</text>
+          <text x="24" y="20" fill="#FF8A80">escribe en ~/.zshrc</text></g></g>
+        <g transform="translate(772 408)"><g class="h h4">
+          <circle cx="8" cy="-5" r="5" fill="#F5B83D"/>
+          <text x="24" fill="#E3DED0">SKILL.md:7</text>
+          <text x="24" y="20" fill="#F7CD72">instrucción escondida para la IA</text></g></g>
+      </g>
+
+      <!-- barrido -->
+      <g class="barrido">
+        <rect x="740" y="140" width="400" height="90" fill="url(#scan)"/>
+      </g>
+
+      <!-- veredicto -->
+      <g class="stamp" transform="rotate(-8 940 470)">
+        <rect x="822" y="444" width="236" height="56" rx="8" fill="#0F0F0C" fill-opacity=".85" stroke="#FF5A4E" stroke-width="3"/>
+        <rect x="829" y="451" width="222" height="42" rx="5" fill="none" stroke="#FF5A4E" stroke-opacity=".5"/>
+        <text class="mono" x="940" y="480" text-anchor="middle" fill="#FF5A4E" font-size="23" font-weight="700" letter-spacing="4">NO INSTALAR</text>
+      </g>
+    </g>
+  </g>
+</svg>

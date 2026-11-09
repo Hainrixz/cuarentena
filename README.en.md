@@ -1,6 +1,20 @@
-# Cuarentena
+<p align="center">
+  <img src="docs/hero.svg" alt="Cuarentena: Claude reviews a ZIP, folder or repo before it touches your computer" width="100%">
+</p>
 
-**Claude reviews a ZIP, folder or repo before it touches your computer.** · [Español](README.md)
+<p align="center">
+  <b>Review what you download before it touches your computer.</b><br>
+  <a href="README.md">Español</a>
+</p>
+
+<p align="center">
+  <img alt="Claude Code plugin" src="https://img.shields.io/badge/Claude_Code-plugin-0F0F0C?style=flat-square">
+  <img alt="Zero dependencies" src="https://img.shields.io/badge/dependencies-zero-F5B83D?style=flat-square">
+  <img alt="Bash" src="https://img.shields.io/badge/Bash-3.2+-3DDC97?style=flat-square">
+  <img alt="MIT" src="https://img.shields.io/badge/license-MIT-E9E4D6?style=flat-square">
+</p>
+
+---
 
 Someone sends you a skill in a ZIP, you find a tool on GitHub, or a friend shares a "pro config"
 folder. You open it with Claude Code and, without noticing, it changes your permissions, leaves a
