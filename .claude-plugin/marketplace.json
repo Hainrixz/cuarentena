@@ -1,0 +1,13 @@
+{
+  "name": "cuarentena",
+  "owner": { "name": "Enrique Rocha", "url": "https://github.com/Hainrixz" },
+  "metadata": { "description": "Cuarentena: revisa lo que descargas antes de que toque tu compu." },
+  "plugins": [
+    {
+      "name": "cuarentena",
+      "source": "./",
+      "description": "Aísla un ZIP, carpeta o repo, lo revisa sin ejecutar nada y te da una ficha con veredicto. Incluye /cuarentena:rescate.",
+      "version": "0.1.0"
+    }
+  ]
+}

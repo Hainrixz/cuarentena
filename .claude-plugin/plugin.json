@@ -1,0 +1,10 @@
+{
+  "name": "cuarentena",
+  "version": "0.1.0",
+  "description": "Revisa un ZIP, una carpeta o un repo antes de instalarlo, sin ejecutar nada: qué cambiaría en tu compu, qué es sospechoso y si hace lo que promete. Y si ya lo abriste, te ayuda a deshacerlo.",
+  "author": { "name": "Enrique Rocha", "url": "https://github.com/Hainrixz" },
+  "homepage": "https://www.tododeia.com/community/cuarentena-claude",
+  "repository": "https://github.com/Hainrixz/cuarentena",
+  "license": "MIT",
+  "keywords": ["seguridad", "security", "quarantine", "skills", "mcp", "hooks", "claude-code"]
+}
